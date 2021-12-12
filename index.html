@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VUE 3 basic</title>
     <style>
-        [v-cloak]{
-            display: none;
-        }
+      [v-cloak] {
+        display: none;
+      }
       .person {
         width: 100px;
         height: 100px;
@@ -22,10 +22,10 @@
       .three {
         background-color: darkorange;
       }
-      .box{
-          width: 50px;  
+      .box {
+        width: 50px;
         height: 50px;
-        background-color:lightgreen ;
+        background-color: lightgreen;
       }
     </style>
   </head>
@@ -38,12 +38,20 @@
       <div v-if="isVisible" class="person one"></div>
       <div v-else-if="isVisible2" class="person two"></div>
       <div v-else class="person three"></div>
-      <hr/>
+
+      <hr />
       <!-- v-on event -->
       <button @click="toggleBox=!toggleBox" type="button">show box</button>
       <!-- <button v-on:click="toggleBox=!toggleBox" type="button">show box</button> -->
       <div v-if="toggleBox" class="box"></div>
+
+      <hr />
+      <!-- methods -->
+      <button @click="methodBox" type="button">show box</button>
+      <div v-if="isShow" class="box"></div>
     </div>
+
+
     <script src="https://unpkg.com/vue@next"></script>
 
     <script>
@@ -53,8 +61,14 @@
             gretting: "hello vue!",
             isVisible: true,
             isVisible2: false,
-            toggleBox:false
+            toggleBox: false,
+            isShow: false,
           };
+        },
+        methods: {
+          methodBox() {
+            this.isShow = !this.isShow;
+          },
         },
       });
       app.mount("#app");
