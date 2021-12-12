@@ -49,8 +49,11 @@
       <!-- methods -->
       <button @click="methodBox" type="button">show box</button>
       <div v-if="isShow" class="box"></div>
+      
+      <hr />
+    <input type="text" @keyup.enter="greet"  v-model="sayHello"/>
     </div>
-
+    
 
     <script src="https://unpkg.com/vue@next"></script>
 
@@ -59,6 +62,7 @@
         data: function () {
           return {
             gretting: "hello vue!",
+            sayHello:"Hi! I am Chris!",
             isVisible: true,
             isVisible2: false,
             toggleBox: false,
@@ -68,6 +72,9 @@
         methods: {
           methodBox() {
             this.isShow = !this.isShow;
+          },
+          greet(e) {
+            console.log(this.sayHello);
           },
         },
       });
