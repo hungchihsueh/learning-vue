@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VUE 3 basic</title>
-</head>
-<body>
-    <h1>hello vue!</h1>
+    <style>
+      .person {
+        width: 100px;
+        height: 100px;
+      }
+      .one {
+        background-color: aqua;
+      }
+      .two {
+        background-color: crimson;
+      }
+      .three {
+        background-color: darkorange;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      {{gretting}}
+      <input type="text" v-model="gretting" />
+      <hr />
+      <!-- v-if測試 -->
+      <div v-if="isVisible" class="person one"></div>
+      <div v-else-if="isVisible2" class="person two"></div>
+      <div v-else class="person three"></div>
+    </div>
     <script src="https://unpkg.com/vue@next"></script>
 
-</body>
+    <script>
+      let app = Vue.createApp({
+        data: function () {
+          return {
+            gretting: "hello vue!",
+            isVisible: true,
+            isVisible2: false,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
 </html>
