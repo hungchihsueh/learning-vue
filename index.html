@@ -40,7 +40,8 @@
       <div v-else class="person three"></div>
       <hr/>
       <!-- v-on event -->
-      <button v-on:click="toggleBox=!toggleBox" type="button">show box</button>
+      <button @click="toggleBox=!toggleBox" type="button">show box</button>
+      <!-- <button v-on:click="toggleBox=!toggleBox" type="button">show box</button> -->
       <div v-if="toggleBox" class="box"></div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
