@@ -34,11 +34,26 @@
       });
       app.component("login-form", {
         template: `
-            <div>
-                <input type="email"/>
-                <input type="password"/>
-            </div>
+            <form @submit.prevent="handleSubmit">
+                <div>
+                    <label for="email">email:</label>
+                    <input id="email" type="email"/>
+                </div>
+                <div>
+                    <label for="password">password:</label>
+                    <input id="password" type="password"/>
+                </div>
+                <button>login</button>
+            </form>
             `,
+            data(){
+
+            },
+            methods:{
+                handleSubmit() {
+            console.log("submited");
+          },
+            }
       });
       app.mount("#app");
     </script>
