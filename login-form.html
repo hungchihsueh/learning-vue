@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login form</title>
+  </head>
+  <body>
+    <div id="app">
+      <login-form />
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      let app = Vue.createApp({
+        data: function () {
+          return {
+            gretting: "hello vue!",
+            sayHello: "Hi! I am Chris!",
+            isVisible: true,
+            isVisible2: false,
+            toggleBox: false,
+            isShow: false,
+          };
+        },
+        methods: {
+          methodBox() {
+            this.isShow = !this.isShow;
+          },
+          greet() {
+            console.log(this.sayHello);
+          },
+        },
+      });
+      app.component("login-form", {
+        template: `
+            <div>
+                <input type="email"/>
+                <input type="password"/>
+            </div>
+            `,
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
